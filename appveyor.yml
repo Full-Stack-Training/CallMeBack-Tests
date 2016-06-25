@@ -1,0 +1,23 @@
+version: 1.0.{build}
+assembly_info:
+  patch: true
+  file: '**\SolutionInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}-pre'
+environment:
+  base_version: 1.0.0
+before_build:
+- cmd: nuget restore
+build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  parallel: true
+  verbosity: minimal
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/full-stack-training/api/v2/package
+  api_key:
+    secure: TBghYs0vLRIqxJK7TYR0cHpuybQ61ZyvBd/25wGdY0AyKWcKyCgSZ77gELSbyP8s
+  symbol_server: https://nuget.symbolsource.org/MyGet/full-stack-training
