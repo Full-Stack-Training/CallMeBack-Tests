@@ -9,7 +9,7 @@ environment:
   base_version: 1.0.0
 before_build:
 - cmd: nuget restore
-- ps: dir
+- ps: Update-Package -Id FullStackTraining.CallMeBack.Domain -IncludePrerelease
 build:
   publish_nuget: true
   publish_nuget_symbols: true
