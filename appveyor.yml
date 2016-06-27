@@ -11,7 +11,7 @@ before_build:
 - cmd: >-
      nuget restore
      
-     nuget update CallMeBack-Tests.sln -Id FullStackTraining.CallMeBack.Domain
+     nuget update CallMeBack-Tests.sln -Id FullStackTraining.CallMeBack.Domain -Prerelease
 build:
   publish_nuget: true
   publish_nuget_symbols: true
