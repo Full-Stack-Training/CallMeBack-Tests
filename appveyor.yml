@@ -8,8 +8,9 @@ assembly_info:
 environment:
   base_version: 1.0.0
 before_build:
-- cmd: nuget restore
-- ps: Update-Package -Id FullStackTraining.CallMeBack.Domain -IncludePrerelease
+- cmd: >-
+     nuget restore
+     nuget update CallMeBack-Tests.sln -Id FullStackTraining.CallMeBack.Domain
 build:
   publish_nuget: true
   publish_nuget_symbols: true
